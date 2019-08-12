@@ -66,8 +66,8 @@ public class TransaccionesResource {
      * or with status {@code 500 (Internal Server Error)} if the transacciones couldn't be updated.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
-    @PutMapping("/transacciones")
-    public ResponseEntity<Transacciones> updateTransacciones(@RequestBody Transacciones transacciones) throws URISyntaxException {
+    @PutMapping("/transacciones/{id}")
+    public ResponseEntity<Transacciones> updateTransacciones(@PathVariable Long id,@Valid @RequestBody Transacciones transacciones) throws URISyntaxException {
         log.debug("REST request to update Transacciones : {}", transacciones);
         if (transacciones.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

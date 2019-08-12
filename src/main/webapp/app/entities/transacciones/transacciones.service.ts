@@ -25,10 +25,10 @@ export class TransaccionesService {
       .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
   }
 
-  update(transacciones: ITransacciones): Observable<EntityResponseType> {
+  update(id: number, transacciones: ITransacciones): Observable<EntityResponseType> {
     const copy = this.convertDateFromClient(transacciones);
     return this.http
-      .put<ITransacciones>(this.resourceUrl, copy, { observe: 'response' })
+      .put<ITransacciones>(`${this.resourceUrl}/${id}`, copy, { observe: 'response' })
       .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
   }
 

@@ -71,7 +71,7 @@ export class TransaccionesUpdateComponent implements OnInit {
     this.isSaving = true;
     const transacciones = this.createFromForm();
     if (transacciones.id !== undefined) {
-      this.subscribeToSaveResponse(this.transaccionesService.update(transacciones));
+      this.subscribeToSaveResponse(this.transaccionesService.update(this.transacciones.id, transacciones));
     } else {
       this.subscribeToSaveResponse(this.transaccionesService.create(transacciones));
     }

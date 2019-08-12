@@ -50,7 +50,7 @@ export class ClientesUpdateComponent implements OnInit {
     this.isSaving = true;
     const clientes = this.createFromForm();
     if (clientes.id !== undefined) {
-      this.subscribeToSaveResponse(this.clientesService.update(clientes));
+      this.subscribeToSaveResponse(this.clientesService.update(this.clientes.id, clientes));
     } else {
       this.subscribeToSaveResponse(this.clientesService.create(clientes));
     }

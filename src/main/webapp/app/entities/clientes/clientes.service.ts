@@ -19,8 +19,8 @@ export class ClientesService {
     return this.http.post<IClientes>(this.resourceUrl, clientes, { observe: 'response' });
   }
 
-  update(clientes: IClientes): Observable<EntityResponseType> {
-    return this.http.put<IClientes>(this.resourceUrl, clientes, { observe: 'response' });
+  update(id: number, clientes: IClientes): Observable<EntityResponseType> {
+    return this.http.put<IClientes>(`${this.resourceUrl}/${id}`, clientes, { observe: 'response' });
   }
 
   find(id: number): Observable<EntityResponseType> {

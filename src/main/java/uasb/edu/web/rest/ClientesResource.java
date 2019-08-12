@@ -72,8 +72,8 @@ public class ClientesResource {
      * or with status {@code 500 (Internal Server Error)} if the clientes couldn't be updated.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
-    @PutMapping("/clientes")
-    public ResponseEntity<Clientes> updateClientes(@RequestBody Clientes clientes) throws URISyntaxException {
+    @PutMapping("/clientes/{id}")
+    public ResponseEntity<Clientes> updateClientes(@PathVariable Long id,  @Valid @RequestBody Clientes clientes) throws URISyntaxException {
         log.debug("REST request to update Clientes : {}", clientes);
         if (clientes.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
