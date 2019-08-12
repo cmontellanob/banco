@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-transacciones-heading" jhiTranslate="bancoApp.transacciones.home.createOrEditLabel">Create or edit a Transacciones</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bancoApp.transacciones.fecha" for="field_fecha">Fecha</label>
+                    <div class="d-flex">
+                        <input id="field_fecha" type="datetime-local" class="form-control" name="fecha" formControlName="fecha" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bancoApp.transacciones.transactionType" for="field_transactionType">Transaction Type</label>
+                    <select class="form-control" name="transactionType" formControlName="transactionType" id="field_transactionType">
+                        <option value="Ingreso">{{'bancoApp.TransactionType.Ingreso' | translate}}</option>
+                        <option value="Egreso">{{'bancoApp.TransactionType.Egreso' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bancoApp.transacciones.cantidad" for="field_cantidad">Cantidad</label>
+                    <input type="number" class="form-control" name="cantidad" id="field_cantidad"
+                           formControlName="cantidad"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bancoApp.transacciones.descripcion" for="field_descripcion">Descripcion</label>
+                    <input type="text" class="form-control" name="descripcion" id="field_descripcion"
+                           formControlName="descripcion"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bancoApp.transacciones.clientes" for="field_clientes">Clientes</label>
+                    <select class="form-control" id="field_clientes" name="clientes" formControlName="clientes">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="clientesOption.id === editForm.get('clientes').value?.id ? editForm.get('clientes').value : clientesOption" *ngFor="let clientesOption of clientes; trackBy: trackClientesById">{{clientesOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

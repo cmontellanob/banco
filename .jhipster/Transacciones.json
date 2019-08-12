@@ -1,0 +1,39 @@
+{
+    "name": "Transacciones",
+    "fields": [
+        {
+            "fieldName": "fecha",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "transactionType",
+            "fieldType": "TransactionType",
+            "fieldValues": "Ingreso,Egreso"
+        },
+        {
+            "fieldName": "cantidad",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "clientes",
+            "otherEntityName": "clientes",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190812025234",
+    "entityTableName": "transacciones",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

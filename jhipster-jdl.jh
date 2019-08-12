@@ -1,0 +1,34 @@
+entity Clientes{
+    code Long,
+	firstName String,
+	lastName String,
+	email String,
+	phoneNumber String,
+}
+
+entity Transacciones {
+	fecha Instant,
+	transactionType TransactionType,
+	cantidad Long,
+    descripcion String
+}
+
+enum TransactionType {
+    Ingreso, Egreso
+}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	Clientes{code} to Transacciones,
+	
+}
+
+
+// Set pagination options
+paginate Clientes with pagination
+
+// Set service options to all except few
+service all with serviceImpl 
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

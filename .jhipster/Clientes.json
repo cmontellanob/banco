@@ -1,0 +1,42 @@
+{
+    "name": "Clientes",
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "firstName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lastName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "phoneNumber",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "transacciones",
+            "otherEntityRelationshipName": "clientes",
+            "relationshipName": "code"
+        }
+    ],
+    "changelogDate": "20190812025233",
+    "entityTableName": "clientes",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

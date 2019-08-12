@@ -1,0 +1,11 @@
+id;fecha;transaction_type;cantidad;descripcion
+1;2019-08-11T12:48:33;Egreso;27599;scalable
+2;2019-08-11T22:55:29;Ingreso;42340;reinvent 24 hour Jewelery
+3;2019-08-11T22:07:08;Egreso;92630;deposit Internal
+4;2019-08-11T06:29:25;Ingreso;37081;Lempira
+5;2019-08-11T10:54:33;Egreso;38292;Developer
+6;2019-08-11T06:31:02;Egreso;4043;system Small
+7;2019-08-11T16:20:49;Ingreso;89576;Harbor Montana
+8;2019-08-11T10:11:56;Ingreso;20306;Brand
+9;2019-08-11T12:31:06;Egreso;88046;Auto Loan Account modular Refined
+10;2019-08-11T15:56:04;Egreso;32434;Fresh granular Direct
